@@ -371,3 +371,5 @@ zmaticoo.com, 5135004, RESELLER
 sharethrough.com, 3713, RESELLER, d53b998a7bd4ecd2
 media.net, 8cu12aq1y, RESELLER
 bidmachine.io, 1412, RESELLER
+rubiconproject.com, 28169, RESELLER, 0bfd66d529a55807
+openx.com, 561446248, RESELLER, 6a698e2ec38604c6
