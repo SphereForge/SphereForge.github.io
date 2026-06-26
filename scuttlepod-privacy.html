@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scuttlepod Privacy Policy</title>
+</head>
+<body>
+
+    <h1>Scuttlepod Privacy Policy</h1>
+
+    <p><strong>Effective Date:</strong> June 26, 2026</p>
+
+    <p>I, the developer of Scuttlepod, have built this application (the "App") as a secure, personal device lock, parental control, and remote-wipe anti-theft utility. This Privacy Policy is here to tell you in plain English exactly how Scuttlepod protects your data.</p>
+
+    <h2>Scuttlepod Privacy Philosophy is simple:</h2>
+
+    <ul>
+        <li><strong>No Personal Data Harvesting:</strong> I do not collect, harvest, monitor, store, share, or transmit any of your personal data, files, PINs, or security logs to myself or any third-party marketing/analytics networks.</li>
+        <li><strong>100% Local Storage:</strong> All your security configurations, saved PINs, incorrect PIN logs, and captured intruder photos are stored locally and securely in the App's private, sandboxed internal storage directory on your device. This data is fully controlled by you and can be permanently deleted at any time from within the App's settings.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Permissions Justification and Use (Your Setup Choices)</h2>
+
+    <p>To protect your device, Scuttlepod needs you to enable several permissions. Here is exactly what they do and why they are needed.</p>
+
+    <h3>Required Permissions:</h3>
+    <ul>
+        <li><strong>Accessibility Service:</strong> Used strictly to protect your device by detecting when a blocked/restricted app is opened so the lock overlay can display, and to block guests from going into settings to force-stop or uninstall Scuttlepod. This runs completely offline on your device.</li>
+        <li><strong>Display Over Other Apps (System Alert Window):</strong> This is the permission that physically allows Scuttlepod to draw its security lock screen over your home screen and restricted apps.</li>
+        <li><strong>Battery Optimization (Unrestricted):</strong> Must be set to "Unrestricted" so that Android does not put Scuttlepod to sleep in the background, which would leave your locked apps unprotected.</li>
+    </ul>
+
+    <h3>Optional Permissions:</h3>
+    <ul>
+        <li><strong>Camera Access:</strong> Used strictly to snap silent photos with the front and back cameras if an incorrect PIN is entered on your lock screen. These photos are saved directly inside Scuttlepod’s private, sandboxed internal storage, making them completely invisible to all other applications on your device. Furthermore, they are stored on your device’s hardware-encrypted partition, which is only decrypted when you unlock your device.</li>
+        <li><strong>Notifications:</strong> Used to send you system alerts if critical security features are accidentally turned off or revoked.</li>
+        <li><strong>Notification Access (Notification Interceptor):</strong> Allows Scuttlepod to scan incoming notification headers locally on your device for your custom, secret remote-trigger keyword.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Background System Permissions</h2>
+
+    <p>For transparency, the App also declares a few automatic background permissions in its configuration file. These do not require manual switches on your setup screen:</p>
+    <ul>
+        <li><strong>Query All Packages:</strong> This is the permission that allows Scuttlepod to see the list of apps installed on your device so you can choose which ones to lock.</li>
+        <li><strong>Foreground Service (Data Sync):</strong> Keeps the backup engine safely running in the background during a remote-wipe trigger so your files finish uploading securely before they are locally deleted.</li>
+        <li><strong>Receive Boot Completed:</strong> Allows the App's security lock screen to launch immediately the moment your device powers on, preventing bypasses after a forced reboot.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Third-Party Cloud Integrations & Privacy Links</h2>
+
+    <p>Scuttlepod allows you to link your personal Google Drive or Dropbox accounts so you can safely rescue your files and receive remote status updates during backup.</p>
+    <ul>
+        <li><strong>Direct Uploads:</strong> All backups and Scuttlepod's backup percentage status logs are uploaded directly and securely from your device to your own private Google Drive or Dropbox storage. These status logs are sent only during an active backup task to report the upload progression, followed by a final confirmation file that is uploaded immediately after a secure remote wipe has successfully completed. Your data never passes through me or any third-party middleman.</li>
+        <li><strong>Third-Party Privacy Policies:</strong> Because Scuttlepod utilizes these external platforms to store your backups, your cloud storage is subject to their respective privacy terms. I encourage you to read them here:
+            <ul>
+                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+                <li><a href="https://www.dropbox.com/privacy" target="_blank" rel="noopener noreferrer">Dropbox Privacy Policy</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Disclaimer, Limitation of Liability & Software Provided "AS IS"</h2>
+
+    <p>Because Scuttlepod is a highly powerful security and data-destruction utility, you must understand your responsibilities as a user before using this application:</p>
+    <ul>
+        <li><strong>Forgotten PINs & Lockout:</strong> Because your PINs are cryptographically hashed and stored strictly locally on your device, <strong>I have absolutely no way to recover, reset, or bypass your Master PIN if you forget it.</strong> If you lose your Master PIN, you will be permanently locked out of Scuttlepod and your restricted applications. I am not responsible or liable for any loss of access to your device or data.</li>
+        <li><strong>Accidental Wipes & Data Loss:</strong> Scuttlepod is designed to permanently and securely shred files upon your command (via the Panic Wipe PIN, Cloud Canary, or Notification triggers). If you configure your wipe targets incorrectly, or if you accidentally trigger a wipe, <strong>your data will be permanently and unrecoverably destroyed.</strong> I am not responsible or liable for any accidental loss of files, photos, database entries, or folder directories.</li>
+        <li><strong>Cloud Content & Upload Responsibility:</strong> Because Scuttlepod connects directly to your personal Google Drive or Dropbox accounts, you are solely responsible for the content you choose to back up. I have no access to, nor do I monitor, your uploaded files. You must ensure that your backed-up data complies with your cloud provider’s terms of service and all applicable local and international laws (including copyright and privacy laws). I am not responsible or liable for any legal actions, account suspensions, or compliance issues resulting from the files you choose to store in your cloud.</li>
+        <li><strong>Software Provided "AS IS":</strong> This application is provided "AS IS" and "AS AVAILABLE" without any warranties of any kind, either express or implied. While I have worked tirelessly to test Scuttlepod, eliminate bugs, and ensure maximum stability on physical devices, no software is completely free of errors. <strong>Any remaining bugs are entirely unintentional.</strong> Under no circumstances shall I, the developer, be held liable for any direct, indirect, incidental, special, or consequential damages (including, but not limited to, data loss, device lockouts, system crashes, or hardware issues) resulting from the use of, or the inability to use, this application.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Children's Privacy</h2>
+
+    <p>This app is intended for a general audience and is not directed to children under the age of 13 (or the relevant age in your jurisdiction). I do not collect, store, or solicit any personal information from children or anyone else, as the App processes all data and app-restriction rules strictly locally on the device.</p>
+
+    <hr>
+
+    <h2>Changes to This Privacy Policy</h2>
+
+    <p>I may update this Privacy Policy from time to time. You are advised to review this page periodically for any changes.</p>
+
+    <hr>
+
+    <h2>Contact Me</h2>
+
+    <p>If you have any questions about this Privacy Policy or wish to report a bug, please do not hesitate to contact me at:</p>
+    <ul>
+        <li><strong>Email:</strong> <a href="mailto:sphereforge.apps@gmail.com">sphereforge.apps@gmail.com</a></li>
+        <li><strong>Official GitHub Repository:</strong> <a href="https://github.com/SphereForge/Scuttlepod" target="_blank" rel="noopener noreferrer">github.com/SphereForge/Scuttlepod</a></li>
+    </ul>
+
+</body>
+</html>
