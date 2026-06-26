@@ -54,6 +54,29 @@ A simple and powerful tool to find and delete duplicate & similar photos or vide
 
 ---
 
+<table>
+  <tr>
+    <td style="border: none; vertical-align: middle;">
+      <img src="https://github.com/user-attachments/assets/fbff3ce9-2779-4f6f-8cf0-5c87f9b4d2db" width="64" height="64">
+    </td>
+    <td style="border: none; vertical-align: middle;">
+      <h3>ScuttlePod</h3>
+    </td>
+  </tr>
+</table>
+
+An advanced, local-first AppLocker, decoy Guest lock, and secure remote-wipe anti-theft folder backup utility.
+
+<a href='https://play.google.com/store/apps/details?id=com.sphereforge.scuttlepod'>
+    <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="200"/>
+</a>
+
+*   **[🐞 Report an Issue](https://github.com/SphereForge/Scuttlepod/issues)** - Have a bug to report? Let me know here.
+*   **[💻 View the Project on GitHub](https://github.com/SphereForge/Scuttlepod)** - See the source code and project details.
+*   **[📄 View Privacy Policy](https://sphereforge.github.io/scuttlepod-privacy.html)** - Learn about how I handle your data.
+
+---
+
 <!-- 
 *** TO ADD YOUR NEXT APP, COPY AND PASTE THIS TEMPLATE BELOW ***
 
