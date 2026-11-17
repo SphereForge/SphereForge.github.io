@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScuttlePod &amp; SphereForge — Android Applications</title>
+  <meta name="description" content="ScuttlePod anti-theft &amp; data rescue, plus RecOmni, Dupli-Gone, and PicTrimmer by SphereForge. Building software you can own with a privacy-respecting design, and absolutely no subscriptions." />
+  <meta property="og:title" content="ScuttlePod &amp; SphereForge — Android Applications" />
+  <meta property="og:description" content="Building software you can own with a privacy-respecting design, and absolutely no subscriptions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://scuttlepod.com/" />
+  <style>
+    :root {
+      /* ScuttlePod Tactical & Ice Palette */
+      --bg-base: #060e08;
+      --tactical-bg: #0A1905;
+      --tactical-surface: #10220b;
+      --tactical-surface-variant: #162D10;
+      --tactical-primary: #81C784;
+      --tactical-on-primary: #00390A;
+      --tactical-primary-container: #005313;
+      --tactical-on-primary-container: #A8F5A6;
+      --tactical-on-surface: #E0E4DB;
+      --tactical-muted: #9eb09a;
+      --tactical-error: #FFB4AB;
+      --tactical-error-container: #93000A;
+
+      --ice-primary: #006064;
+      --ice-container: #B2EBF2;
+      --ice-cyan: #00E5FF;
+
+      /* RecOmni Accents */
+      --recomni-red: #E53935;
+      --recomni-green: #43A047;
+      --recomni-blue: #1E88E5;
+      --recomni-purple: #9C27B0;
+
+      /* Dupli-Gone Accents */
+      --dupli-purple: #BB86FC;
+      --dupli-teal: #03DAC6;
+
+      /* PicTrimmer Accents */
+      --pic-primary: #D0BCFF;
+      --pic-container: #4F378B;
+
+      --border-subtle: rgba(178, 235, 242, 0.14);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+      --max-width: 1140px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(0, 96, 100, 0.28) 0%, transparent 42%),
+        radial-gradient(circle at 85% 20%, rgba(129, 199, 132, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(0, 96, 100, 0.14) 0%, transparent 50%);
+      color: var(--tactical-on-surface);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 14, 8, 0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--ice-cyan);
+      box-shadow: 0 0 12px var(--ice-cyan);
+      transform: rotate(45deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.92rem;
+      color: var(--tactical-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--ice-container);
+    }
+
+    .nav-cta {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 96, 100, 0.35);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      color: var(--ice-container);
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--ice-primary);
+      color: #ffffff;
+    }
+
+    /* ZONE 1: SCUTTLEPOD SPOTLIGHT */
+    .spotlight {
+      padding: 56px 0 48px;
+    }
+
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 96, 100, 0.3);
+      border: 1px solid rgba(178, 235, 242, 0.28);
+      color: var(--ice-container);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ice-cyan);
+      box-shadow: 0 0 8px var(--ice-cyan);
+    }
+
+    .hero-app-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .hero-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: #000;
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 10px 30px rgba(0, 229, 255, 0.16);
+    }
+
+    .hero-icon img,
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: var(--ice-cyan);
+    }
+
+    .hero-copy {
+      color: var(--tactical-muted);
+      font-size: 1.04rem;
+      margin-bottom: 24px;
+      max-width: 56ch;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      background: var(--tactical-primary);
+      color: var(--tactical-on-primary);
+      font-weight: 700;
+      font-size: 0.94rem;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 24px rgba(129, 199, 132, 0.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(129, 199, 132, 0.35);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 15px;
+      border-radius: var(--radius-md);
+      background: var(--tactical-surface-variant);
+      border: 1px solid var(--border-subtle);
+      color: var(--tactical-on-surface);
+      font-weight: 600;
+      font-size: 0.87rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--ice-cyan);
+      background: rgba(0, 96, 100, 0.3);
+    }
+
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(22, 45, 16, 0.65);
+      border: 1px solid rgba(129, 199, 132, 0.22);
+      font-size: 0.8rem;
+      color: var(--tactical-on-primary-container);
+    }
+
+    /* Interactive Security Console */
+    .console-card {
+      background: linear-gradient(160deg, rgba(16, 34, 11, 0.95), rgba(6, 14, 8, 0.98));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    .tab-bar {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tab-btn {
+      appearance: none;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 25, 5, 0.8);
+      color: var(--tactical-muted);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--tactical-on-surface);
+      border-color: rgba(178, 235, 242, 0.35);
+    }
+
+    .tab-btn[aria-selected="true"] {
+      background: rgba(0, 96, 100, 0.42);
+      border-color: var(--ice-cyan);
+      color: #ffffff;
+    }
+
+    .tab-btn.wipe-tab[aria-selected="true"] {
+      background: rgba(147, 0, 10, 0.48);
+      border-color: var(--tactical-error);
+      color: var(--tactical-error);
+    }
+
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .spec-item {
+      background: rgba(22, 45, 16, 0.55);
+      border: 1px solid rgba(178, 235, 242, 0.1);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .spec-item.danger {
+      background: rgba(147, 0, 10, 0.22);
+      border-color: rgba(255, 180, 171, 0.25);
+    }
+
+    .spec-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ice-container);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .spec-item.danger .spec-title {
+      color: var(--tactical-error);
+    }
+
+    .spec-tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 229, 255, 0.12);
+      color: var(--ice-cyan);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .spec-item.danger .spec-tag {
+      background: rgba(255, 180, 171, 0.15);
+      color: var(--tactical-error);
+    }
+
+    .spec-desc {
+      font-size: 0.85rem;
+      color: var(--tactical-muted);
+    }
+
+    .spec-desc code {
+      color: var(--ice-container);
+      font-size: 0.8rem;
+    }
+
+    /* ZONE 2: STUDIO GRID (All Apps) */
+    .studio-section {
+      padding: 52px 0 72px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      color: var(--tactical-muted);
+      font-size: 0.95rem;
+    }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .app-card {
+      background: var(--tactical-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Per-App Theme Styling */
+    .app-card.featured-new {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(229, 57, 53, 0.08) 0%, rgba(30, 136, 229, 0.08) 50%, rgba(16, 34, 11, 0.95) 100%);
+      border-color: rgba(30, 136, 229, 0.35);
+    }
+
+    .app-card.featured-new:hover {
+      border-color: rgba(30, 136, 229, 0.7);
+    }
+
+    .app-card.dupli-card {
+      background: linear-gradient(155deg, rgba(28, 28, 30, 0.94), rgba(16, 34, 11, 0.9));
+      border-color: rgba(187, 134, 252, 0.24);
+    }
+
+    .app-card.dupli-card:hover {
+      border-color: var(--dupli-teal);
+    }
+
+    .app-card.pic-card {
+      background: linear-gradient(155deg, rgba(28, 27, 31, 0.94), rgba(16, 34, 11, 0.9));
+      border-color: rgba(208, 188, 255, 0.24);
+    }
+
+    .app-card.pic-card:hover {
+      border-color: var(--pic-primary);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .app-identity {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .app-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--tactical-surface-variant);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .app-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .app-subtitle {
+      font-size: 0.84rem;
+      color: var(--tactical-primary);
+      font-weight: 600;
+    }
+
+    .new-badge {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(30, 136, 229, 0.16);
+      border: 1px solid rgba(30, 136, 229, 0.5);
+      color: #90caf9;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .app-desc {
+      color: var(--tactical-muted);
+      font-size: 0.93rem;
+      margin-top: 12px;
+    }
+
+    .feature-chips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip-box {
+      background: rgba(10, 16, 12, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-top: 3px solid var(--ice-cyan);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .chip-box.record {
+      border-top-color: var(--recomni-red);
+    }
+
+    .chip-box.convert {
+      border-top-color: var(--recomni-green);
+    }
+
+    .chip-box.compress {
+      border-top-color: var(--recomni-blue);
+    }
+
+    .chip-box strong {
+      display: block;
+      font-size: 0.86rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .chip-box span {
+      font-size: 0.81rem;
+      color: var(--tactical-muted);
+      display: block;
+    }
+
+    /* Expandable In-Page Details (README on Website) */
+    details.app-readme {
+      margin-top: 14px;
+      background: rgba(10, 16, 12, 0.62);
+      border: 1px solid rgba(178, 235, 242, 0.12);
+      border-radius: 12px;
+      padding: 11px 14px;
+    }
+
+    details.app-readme summary {
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ice-container);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dupli-card details.app-readme summary {
+      color: var(--dupli-teal);
+    }
+
+    .pic-card details.app-readme summary {
+      color: var(--pic-primary);
+    }
+
+    details.app-readme summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.app-readme summary::after {
+      content: "+";
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    details.app-readme[open] summary::after {
+      content: "−";
+    }
+
+    .readme-body {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(178, 235, 242, 0.1);
+      font-size: 0.84rem;
+      color: var(--tactical-muted);
+      display: grid;
+      gap: 10px;
+    }
+
+    .readme-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .readme-list li {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 9px;
+      padding: 9px 11px;
+    }
+
+    .readme-list strong {
+      color: var(--tactical-on-surface);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.83rem;
+    }
+
+    .readme-subhead {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--tactical-on-surface);
+      margin-top: 4px;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(178, 235, 242, 0.08);
+    }
+
+    .pill-link {
+      padding: 7px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(22, 45, 16, 0.8);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--tactical-on-surface);
+      transition: all 0.15s ease;
+    }
+
+    .pill-link:hover {
+      border-color: var(--tactical-primary);
+      color: var(--tactical-primary);
+    }
+
+    .pill-link.play-pill {
+      background: var(--tactical-primary);
+      color: var(--tactical-on-primary);
+      border-color: transparent;
+      font-weight: 700;
+    }
+
+    .pill-link.play-pill:hover {
+      background: var(--tactical-on-primary-container);
+      color: var(--tactical-on-primary);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      color: var(--tactical-muted);
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .spotlight-grid {
+        grid-template-columns: 1fr;
+      }
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+      .app-card.featured-new {
+        grid-column: span 1;
+      }
+      .feature-chips {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+      .tab-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        <span>SphereForge</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#scuttlepod">ScuttlePod</a>
+        <a href="#apps">All Apps</a>
+      </nav>
+      <a href="https://github.com/SphereForge" target="_blank" rel="noopener" class="nav-cta">GitHub Profile</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ZONE 1: SCUTTLEPOD SPOTLIGHT -->
+    <section id="scuttlepod" class="spotlight">
+      <div class="spotlight-grid">
+
+        <!-- Left Column -->
+        <div>
+          <div class="badge-row">
+            <span class="eyebrow"><span class="eyebrow-dot"></span> Android Security &amp; Data Rescue</span>
+          </div>
+
+          <div class="hero-app-header">
+            <div class="hero-icon">
+              <img src="https://github.com/user-attachments/assets/fbff3ce9-2779-4f6f-8cf0-5c87f9b4d2db" alt="ScuttlePod Logo" />
+            </div>
+            <div>
+              <strong style="font-size: 1.25rem; display:block;">ScuttlePod</strong>
+              <span style="font-size: 0.88rem; color: var(--tactical-muted);">Anti-Theft • Decoy AppLock • Data Rescue</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title">
+            You don't just need a backup. You need an <span>ejection seat.</span>
+          </h1>
+
+          <p class="hero-copy">
+            An advanced AppLocker, decoy Guest lock, and secure remote-wipe anti-theft folder backup utility. Pairs a 4-PIN vault with byte-level shredding and Bring-Your-Own-Cloud emergency rescue.
+          </p>
+
+          <div class="cta-group">
+            <a href="https://play.google.com/store/apps/details?id=com.sphereforge.scuttlepod" target="_blank" rel="noopener" class="btn-primary">▶ Get on Google Play</a>
+            <a href="https://github.com/SphereForge/Scuttlepod/blob/main/README.md" target="_blank" rel="noopener" class="btn-secondary">View README on GitHub</a>
+            <a href="https://github.com/SphereForge/Scuttlepod/releases" target="_blank" rel="noopener" class="btn-secondary">Releases</a>
+            <a href="https://github.com/SphereForge/Scuttlepod/issues" target="_blank" rel="noopener" class="btn-secondary">Report Issue</a>
+            <a href="https://scuttlepod.com/scuttlepod-privacy.html" class="btn-secondary">Privacy Policy</a>
+          </div>
+
+          <div class="trust-strip">
+            <span class="trust-pill">✓ Local AppLock &amp; Intruder Logs</span>
+            <span class="trust-pill">✓ Bring Your Own Cloud (Drive / Dropbox)</span>
+            <span class="trust-pill">✓ Zero Developer Servers</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Tab Console -->
+        <div class="console-card">
+          <div class="tab-bar" role="tablist" aria-label="ScuttlePod Security Modules">
+            <button class="tab-btn" role="tab" aria-selected="true" data-tab="vault">🛡️ 4-PIN Vault</button>
+            <button class="tab-btn wipe-tab" role="tab" aria-selected="false" data-tab="wipe">🔥 Scorched-Earth Wipe</button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="triggers">📲 Emergency Triggers</button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="logs">📸 Intruder Logs &amp; BYOC</button>
+          </div>
+
+          <div class="tab-panel active" id="tab-vault">
+            <div class="spec-list">
+              <div class="spec-item">
+                <div class="spec-title">Master PIN <span class="spec-tag">FULL ACCESS</span></div>
+                <p class="spec-desc">Full access to ScuttlePod and all app configurations.</p>
+              </div>
+              <div class="spec-item">
+                <div class="spec-title">Guest PIN <span class="spec-tag">APP OVERLAY</span></div>
+                <p class="spec-desc">Keeps restricted apps protected behind an overlay. Hand your unlocked device to a friend—the moment they tap a restricted app, ScuttlePod blocks them.</p>
+              </div>
+              <div class="spec-item">
+                <div class="spec-title">Panic-Backup PIN <span class="spec-tag">GUEST MODE DECOY</span></div>
+                <p class="spec-desc">Unlocks into Guest Mode to buy you time under pressure—keeping restricted apps locked while silently uploading selected folders to your personal cloud in the background.</p>
+              </div>
+              <div class="spec-item danger">
+                <div class="spec-title">Panic-Wipe PIN <span class="spec-tag">REBOOT PERSISTENT</span></div>
+                <p class="spec-desc">Triggers a customizable countdown (10 to 60 seconds) that survives device reboots. Only the Master PIN can abort it.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-wipe">
+            <div class="spec-list">
+              <div class="spec-item danger">
+                <div class="spec-title">Byte-Level Overwriting <span class="spec-tag">ZERO-FILL</span></div>
+                <p class="spec-desc">Every targeted file is overwritten, chunk by chunk, with secure random bytes matching the exact size of the file, replacing the original data.</p>
+              </div>
+              <div class="spec-item danger">
+                <div class="spec-title">Metadata Scrambling <span class="spec-tag">ANTI-FORENSICS</span></div>
+                <p class="spec-desc">Renames your files and folders to randomized 6-digit numbers before executing the final delete command.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-triggers">
+            <div class="spec-list">
+              <div class="spec-item">
+                <div class="spec-title">Notification Interceptor <span class="spec-tag">REMOTE KEYWORD</span></div>
+                <p class="spec-desc">Trigger a remote wipe or backup by sending your secret keyword from another device. Intercepts and hides the alert, backing up first—or wiping immediately if offline.</p>
+              </div>
+              <div class="spec-item">
+                <div class="spec-title">The Cloud Canary <span class="spec-tag">OFFLINE FALLBACK</span></div>
+                <p class="spec-desc">Delete <code>[SCUTTLEPOD_CANARY] - TRASH TO WIPE PHONE.txt</code> in Google Drive or Dropbox from another device. Backup &amp; wipe triggers the second the phone connects online.</p>
+              </div>
+              <div class="spec-item">
+                <div class="spec-title">Dead Man's Switch <span class="spec-tag">7 / 14 / 30 / 90 DAYS</span></div>
+                <p class="spec-desc">Checks directly with Google's UTC servers to prevent clock-drift false triggers—safely uploads your folders if you do not unlock your device within your set period.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-logs">
+            <div class="spec-list">
+              <div class="spec-item">
+                <div class="spec-title">Dual-Camera Intruder Logs <span class="spec-tag">LOCAL &amp; ENCRYPTED</span></div>
+                <p class="spec-desc">Incorrect PINs silently capture front and back camera photos with timestamps, saved locally in ScuttlePod’s private hardware-encrypted sandbox hidden from your system gallery.</p>
+              </div>
+              <div class="spec-item">
+                <div class="spec-title">Bring Your Own Cloud <span class="spec-tag">NO MIDDLEMAN</span></div>
+                <p class="spec-desc">Backups stream directly from your device to your personal Google Drive or Dropbox account. SphereForge has zero access to your files, keys, or credentials.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONE 2: STUDIO GRID (RecOmni + Dupli-Gone + PicTrimmer) -->
+    <section id="apps" class="studio-section">
+      <div class="section-header">
+        <div>
+          <h2>Applications by SphereForge</h2>
+          <p>Building software you can own with a privacy-respecting design, and absolutely no subscriptions.</p>
+        </div>
+      </div>
+
+      <div class="studio-grid">
+
+        <!-- NEW APP: RecOmni -->
+        <article id="recomni" class="app-card featured-new">
+          <div>
+            <div class="card-top">
+              <div class="app-identity">
+                <div class="app-icon" style="border-color: rgba(30,136,229,0.5);">
+                  <img src="https://github.com/user-attachments/assets/42d093fb-0c5f-49f5-b311-ac103e28a34e" alt="RecOmni Logo" />
+                </div>
+                <div>
+                  <h3 class="app-name">RecOmni</h3>
+                  <span class="app-subtitle" style="color: #90caf9;">Screen Recording • Batch Video Converter • Adaptive Compressor</span>
+                </div>
+              </div>
+              <span class="new-badge">Latest Release</span>
+            </div>
+
+            <p class="app-desc">
+              RecOmni is your all-in-one local media studio for high-performance screen recording, floating facecam overlay, batch video conversion, and adaptive video compression. Processes everything directly on your device with no watermarks and no recording time limits.
+            </p>
+
+            <div class="feature-chips">
+              <div class="chip-box record">
+                <strong>🎥 Powerful Screen Recording</strong>
+                <span>480p, 720p, 1080p up to 4K &amp; 8K at 24/30/60/120 FPS, dual internal + mic audio boost, movable facecam &amp; 9-zone invisible stop hotspot.</span>
+              </div>
+              <div class="chip-box convert">
+                <strong>🔄 Batch Video Converter</strong>
+                <span>Convert multiple clips to MP4/MOV or extract audio with hardware H.264, H.265 (HEVC), AV1 &amp; APV codecs and unlimited folder import.</span>
+              </div>
+              <div class="chip-box compress">
+                <strong>📉 Adaptive Video Compressor</strong>
+                <span>Dynamic bitrate reduction based on each video's specs—auto, low/medium/high presets, or custom target bitrates.</span>
+              </div>
+            </div>
+
+            <details class="app-readme">
+              <summary>Read Full Feature Breakdown &amp; Safeguards</summary>
+              <div class="readme-body">
+                <ul class="readme-list">
+                  <li style="border-left: 3px solid var(--recomni-purple);">
+                    <strong>📊 Comparison &amp; Safeguards</strong>
+                    Bitrate Floor Safeguard prevents pixelation and warns you to keep the original if already optimal. Side-by-Side Metadata Compare inspects file size, duration, FPS, bitrates, color space &amp; audio stats with 1-tap deletion.
+                  </li>
+                  <li>
+                    <strong>🌍 Multi-Language Support (12 Translations)</strong>
+                    Available in English plus 12 languages: Afrikaans, Arabic, Chinese (Simplified), French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, and Spanish.
+                  </li>
+                  <li>
+                    <strong>🔒 100% Private &amp; On-Device</strong>
+                    No account creation, no external servers, and never uploads your personal videos to the cloud. All encoding, mixing, and transcoding runs directly on your device's hardware chipsets.
+                  </li>
+                  <li>
+                    <strong>⚙️ Hardware Note</strong>
+                    Available resolutions (4K/8K), 120 FPS recording, and advanced codecs (AV1/APV) depend on your individual device's hardware capabilities.
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="card-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.sphereforge.recomni" target="_blank" rel="noopener" class="pill-link play-pill">▶ Get on Google Play</a>
+            <a href="https://github.com/SphereForge/RecOmni" target="_blank" rel="noopener" class="pill-link">💻 View README on GitHub</a>
+            <a href="https://github.com/SphereForge/RecOmni/issues" target="_blank" rel="noopener" class="pill-link">🐞 Report an Issue</a>
+            <a href="https://github.com/SphereForge/RecOmni/blob/main/privacy-policy.md" target="_blank" rel="noopener" class="pill-link">📄 Privacy Policy</a>
+          </div>
+        </article>
+
+        <!-- Dupli-Gone -->
+        <article class="app-card dupli-card">
+          <div>
+            <div class="card-top">
+              <div class="app-identity">
+                <div class="app-icon" style="border-color: rgba(187, 134, 252, 0.35);">
+                  <img src="https://github.com/user-attachments/assets/7814b13e-3a18-4abf-b4c6-05e21b34484b" alt="Dupli-Gone Logo" />
+                </div>
+                <div>
+                  <h3 class="app-name">Dupli-Gone</h3>
+                  <span class="app-subtitle" style="color: var(--dupli-purple);">Storage Cleaner</span>
+                </div>
+              </div>
+            </div>
+            <p class="app-desc">
+              A simple and powerful tool to find and delete duplicate &amp; similar photos or videos to recover valuable storage.
+            </p>
+            <details class="app-readme">
+              <summary>Read Overview &amp; Highlights (Key Features)</summary>
+              <div class="readme-body">
+                <p>Is your device's storage always full? Reclaim precious space with Dupli-Gone, the simple, powerful, and private cleaner for your media library. Dupli-Gone is a duplicate file finder that scans your device for both exact duplicates and visually similar photos and videos. It groups them together, making it easy to review and delete unwanted files to free up space.</p>
+                <div class="readme-subhead">✨ Key Features</div>
+                <ul class="readme-list">
+                  <li><strong>✓ PRIVACY FIRST: ALL SCANS ARE OFFLINE</strong>I designed Dupli-Gone with your privacy as a top priority. All processing happens directly on your device. Nothing is ever uploaded to any server. Your files remain completely private and on your device.</li>
+                  <li><strong>✓ DUAL SCAN MODES</strong>Find Duplicates: Uses industrial-strength MD5 hashing to ensure 100% accuracy when finding identical files. Find Similar: Uses advanced DCT pHash algorithms to catch visually similar media (like burst shots, multiple takes of the same scene, or old edits) even if formats differ.</li>
+                  <li><strong>✓ HEAVY DUTY PERFORMANCE</strong>Optimized to handle massive libraries (10,000+ files). The engine automatically adjusts thread usage based on your device's RAM to ensure stability and prevent crashes during deep scans.</li>
+                  <li><strong>✓ MASSIVE FORMAT SUPPORT</strong>🖼️ Images: JPG, PNG, WEBP, BMP, GIF, HEIF. 🎥 Videos: MP4, MKV, WebM, AVI, FLV, MOV, TS. 🎞️ Advanced Codecs: Supports H.264, H.265 (HEVC), VP9, Xvid, and AV1. (Note: Playback of high-end codecs (10-bit/12-bit) depends on your device's hardware capabilities.)</li>
+                  <li><strong>✓ SMART GROUPING &amp; SELECTION</strong>Results are presented in easy-to-review groups. To protect your best shots, the app automatically marks the "Original" file to keep based on the oldest date and highest resolution. This leaves you to simply review and delete the rest.</li>
+                  <li><strong>✓ EASY REVIEW &amp; CLEANING</strong>Full control to select/deselect groups or individual files. Includes a built-in media player to preview any photo or video in full screen before deletion.</li>
+                  <li><strong>✓ ACCESSIBILITY</strong>Built with full support for screen readers and accessibility tools (TalkBack).</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+          <div class="card-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.sphereforge.dupligone" target="_blank" rel="noopener" class="pill-link play-pill">▶ Google Play</a>
+            <a href="https://github.com/SphereForge/Dupli-Gone" target="_blank" rel="noopener" class="pill-link">💻 GitHub README</a>
+            <a href="https://github.com/SphereForge/Dupli-Gone/releases" target="_blank" rel="noopener" class="pill-link">📦 Releases</a>
+            <a href="https://github.com/SphereForge/Dupli-Gone/issues" target="_blank" rel="noopener" class="pill-link">🐞 Issues</a>
+            <a href="https://github.com/SphereForge/Dupli-Gone/blob/main/privacy-policy.md" target="_blank" rel="noopener" class="pill-link">📄 Privacy Policy</a>
+          </div>
+        </article>
+
+        <!-- PicTrimmer -->
+        <article class="app-card pic-card">
+          <div>
+            <div class="card-top">
+              <div class="app-identity">
+                <div class="app-icon" style="border-color: rgba(208, 188, 255, 0.35);">
+                  <img src="https://github.com/user-attachments/assets/f76beeee-15ce-42a2-bf2c-e0c6c8fdbc99" alt="PicTrimmer Logo" />
+                </div>
+                <div>
+                  <h3 class="app-name">PicTrimmer</h3>
+                  <span class="app-subtitle" style="color: var(--pic-primary);">AI Bulk Image Crop</span>
+                </div>
+              </div>
+            </div>
+            <p class="app-desc">
+              A powerful and easy-to-use application for trimming and editing your photos.
+            </p>
+            <details class="app-readme">
+              <summary>Read Overview &amp; Highlights (Key Features)</summary>
+              <div class="readme-body">
+                <p>PicTrimmer is an auto-cropper and bulk image editing tool for Android. It is designed to remove unwanted borders, frames, and padding from your images automatically. Whether processing a single image or a massive library, the engine detects content edges to clean up images efficiently. Now featuring an Offline AI engine to intelligently isolate subjects from backgrounds.</p>
+                <div class="readme-subhead">✨ KEY FEATURES</div>
+                <ul class="readme-list">
+                  <li><strong>✓ AI SMART CROP</strong>Automatically detect people, pets, and objects to crop them from the background.</li>
+                  <li><strong>✓ EDGE DETECTION</strong>The detection engine analyzes images to find content edges and trim background padding automatically.</li>
+                  <li><strong>✓ BATCH PROCESSING</strong>Select an entire folder and process thousands of screenshots in one session.</li>
+                  <li><strong>✓ JUMP NAVIGATION</strong>Instantly navigate large lists by typing the image number to jump directly to that photo.</li>
+                  <li><strong>✓ PRECISION CONTROL</strong>Apply settings globally to a batch, or adjust crop borders for individual images.</li>
+                  <li><strong>✓ FORMAT PRESERVATION</strong>Cropped images are saved in their original format by default.</li>
+                  <li><strong>✓ OFFLINE SUPPORT</strong>Core cropping features function fully without an internet connection.</li>
+                  <li><strong>✓ ACCESSIBILITY</strong>Full support for screen readers and accessibility tools.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+          <div class="card-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.sphereforge.pictrimmer" target="_blank" rel="noopener" class="pill-link play-pill">▶ Google Play</a>
+            <a href="https://github.com/SphereForge/PicTrimmer" target="_blank" rel="noopener" class="pill-link">💻 GitHub README</a>
+            <a href="https://github.com/SphereForge/PicTrimmer/releases" target="_blank" rel="noopener" class="pill-link">📦 Latest APK</a>
+            <a href="https://github.com/SphereForge/PicTrimmer/issues" target="_blank" rel="noopener" class="pill-link">🐞 Issues</a>
+            <a href="https://github.com/SphereForge/PicTrimmer/blob/main/privacy-policy.md" target="_blank" rel="noopener" class="pill-link">📄 Privacy Policy</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 SphereForge — Building software you can own with a privacy-respecting design, and absolutely no subscriptions.</span>
+      <div style="display:flex; gap:16px;">
+        <a href="https://scuttlepod.com/scuttlepod-privacy.html">ScuttlePod Privacy Policy</a>
+        <a href="https://play.google.com/store/apps/developer?id=Sphereforge" target="_blank" rel="noopener">Google Play Studio</a>
+        <a href="https://github.com/SphereForge" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-tab');
+
+        tabButtons.forEach((b) => b.setAttribute('aria-selected', 'false'));
+        tabPanels.forEach((p) => p.classList.remove('active'));
+
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById('tab-' + target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
