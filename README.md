@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to SphereForge</h1>
 
 <p align="center">
-  <em>I create simple and useful applications for Android.</em>
+  <em>Building software you can own with a privacy-respecting design, and absolutely no subscriptions.</em>
 </p>
 
 ---
@@ -57,7 +57,7 @@ A simple and powerful tool to find and delete duplicate & similar photos or vide
 <table>
   <tr>
     <td style="border: none; vertical-align: middle;">
-      <img src="https://github.com/user-attachments/assets/fbff3ce9-2779-4f6f-8cf0-5c87f9b4d2db" width="64" height="64">
+      <img src="https://github.com/user-attachments/assets/fbff3ce9-2779-4f6f-8cf0-5c87f9b4d2db" alt="ScuttlePod Logo" width="64" height="64">
     </td>
     <td style="border: none; vertical-align: middle;">
       <h3>ScuttlePod</h3>
@@ -65,7 +65,7 @@ A simple and powerful tool to find and delete duplicate & similar photos or vide
   </tr>
 </table>
 
-An advanced, local-first AppLocker, decoy Guest lock, and secure remote-wipe anti-theft folder backup utility.
+An advanced AppLocker, decoy Guest lock, and secure remote-wipe anti-theft folder backup utility.
 
 <a href='https://play.google.com/store/apps/details?id=com.sphereforge.scuttlepod'>
     <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="200"/>
@@ -73,7 +73,30 @@ An advanced, local-first AppLocker, decoy Guest lock, and secure remote-wipe ant
 
 *   **[🐞 Report an Issue](https://github.com/SphereForge/Scuttlepod/issues)** - Have a bug to report? Let me know here.
 *   **[💻 View the Project on GitHub](https://github.com/SphereForge/Scuttlepod)** - See the source code and project details.
-*   **[📄 View Privacy Policy](https://sphereforge.github.io/scuttlepod-privacy.html)** - Learn about how I handle your data.
+*   **[📄 View Privacy Policy](https://scuttlepod.com/scuttlepod-privacy.html)** - Learn about how I handle your data.
+
+---
+
+<table>
+  <tr>
+    <td style="border: none; vertical-align: middle;">
+      <img src="https://github.com/user-attachments/assets/42d093fb-0c5f-49f5-b311-ac103e28a34e" alt="RecOmni Logo" width="64" height="64">
+    </td>
+    <td style="border: none; vertical-align: middle;">
+      <h3>RecOmni</h3>
+    </td>
+  </tr>
+</table>
+
+An all-in-one local media studio for high-performance screen recording, batch video conversion, and adaptive video compression.
+
+<a href='https://play.google.com/store/apps/details?id=com.sphereforge.recomni'>
+    <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="200"/>
+</a>
+
+*   **[🐞 Report an Issue or Suggest a Feature](https://github.com/SphereForge/RecOmni/issues)** - Have a bug to report? Let me know here.
+*   **[💻 View the Project on GitHub](https://github.com/SphereForge/RecOmni)** - See the project details and documentation.
+*   **[📄 View Privacy Policy](https://github.com/SphereForge/RecOmni/blob/main/privacy-policy.md)** - Learn about how I handle your data.
 
 ---
 
